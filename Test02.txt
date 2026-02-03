@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Valentine 🖤</title>
+
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #fff0f5;
+      text-align: center;
+      padding: 20px;
+      color: #333;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    .cat {
+      width: 180px;
+      margin: 20px auto;
+    }
+
+    .countdown {
+      font-size: 1.4rem;
+      margin: 20px 0;
+      font-weight: bold;
+      color: #b30059;
+    }
+
+    button {
+      background: #ff4d88;
+      border: none;
+      color: white;
+      padding: 12px 20px;
+      font-size: 1rem;
+      border-radius: 25px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background: #e6005c;
+    }
+
+    .memories {
+      display: none;
+      text-align: left;
+      background: white;
+      margin: 25px auto;
+      padding: 20px;
+      border-radius: 15px;
+      max-width: 500px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    }
+
+    .memories h2 {
+      text-align: center;
+      margin-bottom: 15px;
+      color: #b30059;
+    }
+
+    .memories ol {
+      padding-left: 20px;
+    }
+
+    .memories li {
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    footer {
+      margin-top: 30px;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Will You Be My Valentine? 💕</h1>
+
+  <!-- Black Cat GIF -->
+  <img
+    class="cat"
+    src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif"
+    alt="Black cat gif"
+  />
+
+  <!-- Countdown -->
+  <div class="countdown" id="countdown">
+    Counting down to Valentine’s Day…
+  </div>
+
+  <!-- Memories Button -->
+  <button onclick="toggleMemories()">Open My Favorite Memories 🖤</button>
+
+  <!-- Memories Section -->
+  <div class="memories" id="memories">
+    <h2>Here are some of my favorite memories of us:</h2>
+    <ol>
+      <li>The day we got matching polo black cotton shorts.</li>
+      <li>
+        I do not take your trust for granted. I remember you knowing that I do
+        not know how to drive and still trusting me enough to grant me the chance
+        to learn. Remember when I froze up at the traffic lights?
+      </li>
+      <li>
+        I find your ability to consistently show up for the people in your
+        community very impactful. You have taught me how to be selfless without
+        meaning to.
+      </li>
+      <li>
+        I love that you stand on your truth and belief. You demonstrate stability
+        and assertiveness every time.
+      </li>
+      <li>
+        I have actually always wondered if you register when you chew the corner
+        of your mouth or cheek. You did it more when you are in school. Now I
+        notice it has lessened, was it stress?
+      </li>
+      <li>You are very bold, I love it all.</li>
+    </ol>
+  </div>
+
+  <footer>
+    🖤 Made with love
+  </footer>
+
+  <script>
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const valentinesDay = new Date("February 14, 2026 00:00:00").getTime();
+      const distance = valentinesDay - now;
+
+      if (distance <= 0) {
+        document.getElementById("countdown").innerHTML =
+          "💘 Happy Valentine’s Day! 💘";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML =
+        days + " days " + hours + " hrs " + minutes + " min " + seconds + " sec 💕";
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    function toggleMemories() {
+      const memories = document.getElementById("memories");
+      memories.style.display =
+        memories.style.display === "block" ? "none" : "block";
+    }
+  </script>
+
+</body>
+</html>
